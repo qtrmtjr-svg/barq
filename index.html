@@ -329,11 +329,33 @@
 
   /* Footer */
   .footer {
+    background: #111;
+    color: #fff;
     text-align: center;
-    padding: 20px 0 24px;
-    border-top: 1px solid var(--red-soft);
-    color: var(--fg-muted);
+    padding: 24px 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .footer p { margin: 0; }
+  .footer strong { color: #fff; }
+  .footer hr {
+    border: 0;
+    border-top: 1px solid #444;
+    margin: 12px 0;
+  }
+  .footer .disclaimer {
     font-size: 12px;
+    color: #ccc;
+    line-height: 1.9;
+  }
+  .footer .copyright {
+    font-size: 11px;
+    color: #888;
+    margin-top: 10px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -535,7 +557,13 @@
 
 <!-- Footer -->
 <footer class="footer">
-  &copy; 2024 برق — Barq. جميع الحقوق محفوظة.
+  <p><strong>برق الاتصال لتقنية المعلومات</strong> | رخصة موحدة رقم: 1167730</p>
+  <p>العنوان: مكتب رقم 316، الخبيصي، دبي، الإمارات العربية المتحدة</p>
+  <hr>
+  <p class="disclaimer">
+    إخلاء مسؤولية: هذا الموقع هو منصة دليل ومساعدة إلكترونية مستقلة يهدف إلى توجيه ومساعدة المستخدمين بمعلومات وتفاصيل حول طرق وخطوات شحن رصيد أوريدو الكويت. نحن لسنا الجهة الرسمية أو البوابة المباشرة لشركة أوريدو، وجميع العلامات التجارية والأسماء المذكورة هي ملك لأصحابها وتُستخدم بغرض التوجيه والإرشاد فقط.
+  </p>
+  <p class="copyright">&copy; 2026 جميع الحقوق محفوظة.</p>
 </footer>
 
 <script>
