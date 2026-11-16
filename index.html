@@ -1,62 +1,62 @@
 <title>برق</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
 <style>
-  /* Ooredoo-inspired mobile service hub — bold red on white, card-driven */
   :root {
     --bg: #ffffff;
-    --bg-soft: #f7f7f8;
+    --bg-alt: #f4f4f6;
     --fg: #1a1a1a;
-    --fg-muted: #6b6b6b;
+    --fg-dim: #71717a;
     --red: #e30613;
-    --red-dark: #b8050f;
-    --red-soft: rgba(227, 6, 19, 0.08);
-    --card: #ffffff;
-    --card-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
-    --radius: 16px;
-    --radius-sm: 10px;
-    --font-display: 'Space Grotesk', 'IBM Plex Sans Arabic', sans-serif;
-    --font-body: 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif;
+    --red-hover: #c40510;
+    --red-bg: rgba(227,6,19,0.06);
+    --card-bg: #ffffff;
+    --border: #e8e8ec;
+    --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.03);
+    --r: 12px;
+    --font: 'Tajawal', sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0e0e10;
-      --bg-soft: #1a1a1e;
-      --fg: #eaeaea;
-      --fg-muted: #8a8a8a;
+      --bg: #0f0f12;
+      --bg-alt: #1a1a1f;
+      --fg: #e8e8ec;
+      --fg-dim: #8a8a94;
       --red: #f03040;
-      --red-dark: #d42030;
-      --red-soft: rgba(240, 48, 64, 0.12);
-      --card: #1c1c20;
-      --card-shadow: 0 1px 4px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
+      --red-hover: #e02535;
+      --red-bg: rgba(240,48,64,0.1);
+      --card-bg: #1c1c22;
+      --border: #2a2a30;
+      --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.15);
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0e0e10;
-    --bg-soft: #1a1a1e;
-    --fg: #eaeaea;
-    --fg-muted: #8a8a8a;
+    --bg: #0f0f12;
+    --bg-alt: #1a1a1f;
+    --fg: #e8e8ec;
+    --fg-dim: #8a8a94;
     --red: #f03040;
-    --red-dark: #d42030;
-    --red-soft: rgba(240, 48, 64, 0.12);
-    --card: #1c1c20;
-    --card-shadow: 0 1px 4px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
+    --red-hover: #e02535;
+    --red-bg: rgba(240,48,64,0.1);
+    --card-bg: #1c1c22;
+    --border: #2a2a30;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.15);
     color-scheme: dark;
   }
 
-  *, *::before, *::after { box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     background: var(--bg);
     color: var(--fg);
-    font-family: var(--font-body);
+    font-family: var(--font);
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
     padding-block: 0;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    min-width: 0;
+    line-height: 1.5;
   }
 
   body::before {
@@ -68,7 +68,12 @@
     background: var(--bg);
   }
 
-  /* Header */
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
   .header {
     position: sticky;
     top: env(safe-area-inset-top, 0px);
@@ -77,374 +82,287 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--red-soft);
+    padding: 10px 0;
   }
 
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 8px;
-    margin: -8px;
-    border: none;
-    background: none;
+  .menu-btn {
+    display: flex; flex-direction: column; gap: 4px;
+    background: none; border: none; cursor: pointer; padding: 8px; margin: -8px;
   }
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 2.5px;
-    background: var(--red);
-    border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
+  .menu-btn span {
+    width: 20px; height: 2px; background: var(--red); border-radius: 1px;
   }
 
   .logo {
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: -0.5px;
+    font-size: 24px; font-weight: 800; color: var(--red);
   }
 
-  .lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 7px 12px;
-    border: 1.5px solid var(--red-soft);
-    border-radius: var(--radius-sm);
-    background: none;
-    cursor: pointer;
-    color: var(--fg);
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    transition: background 0.2s;
+  .lang {
+    display: flex; align-items: center; gap: 4px;
+    background: none; border: 1px solid var(--border); border-radius: 8px;
+    padding: 5px 10px; cursor: pointer; color: var(--fg); font-family: var(--font);
+    font-size: 12px; font-weight: 700;
   }
-  .lang-btn:hover { background: var(--red-soft); }
-  .lang-btn svg { width: 18px; height: 18px; fill: var(--red); flex-shrink: 0; }
+  .lang svg { width: 16px; height: 16px; fill: var(--red); }
 
-  /* Sidebar */
-  .overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.45);
-    z-index: 200; opacity: 0; visibility: hidden; transition: 0.25s;
+  /* ── Overlay + Sidebar ── */
+  .ov { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; opacity: 0; visibility: hidden; transition: .2s; }
+  .ov.on { opacity: 1; visibility: visible; }
+  .sb {
+    position: fixed; top: 0; right: -280px; width: 260px; height: 100%;
+    background: var(--bg); z-index: 300; transition: right .3s ease;
+    padding: 20px 18px; display: flex; flex-direction: column;
   }
-  .overlay.open { opacity: 1; visibility: visible; }
+  .sb.on { right: 0; }
+  .sb-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .sb-top .logo { font-size: 20px; }
+  .sb-x { width: 32px; height: 32px; border-radius: 50%; background: var(--red-bg); border: none; cursor: pointer; color: var(--red); font-size: 18px; display: grid; place-items: center; }
+  .sb a { display: block; padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--fg); text-decoration: none; font-size: 14px; font-weight: 500; }
 
-  .sidebar {
-    position: fixed; top: 0; right: -300px; width: 280px; height: 100%;
-    background: var(--bg); z-index: 300; transition: right 0.3s ease;
-    padding: 24px 20px; display: flex; flex-direction: column;
-    box-shadow: -8px 0 40px rgba(0,0,0,0.12);
-  }
-  .sidebar.open { right: 0; }
-
-  .sidebar-head {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 28px;
-  }
-  .sidebar-head .logo { font-size: 22px; }
-  .sidebar-close {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--red-soft); border: none; cursor: pointer;
-    color: var(--red); font-size: 20px; display: grid; place-items: center;
-  }
-
-  .sidebar nav { display: flex; flex-direction: column; gap: 0; }
-  .sidebar nav a {
-    display: block; padding: 15px 0;
-    border-bottom: 1px solid var(--red-soft);
-    color: var(--fg); text-decoration: none;
-    font-size: 15px; font-weight: 500; transition: color 0.2s;
-  }
-  .sidebar nav a:hover { color: var(--red); }
-
-  /* Banner */
+  /* ── Banner ── */
   .banner {
-    margin: 20px 0 0;
-    border-radius: var(--radius);
+    margin-top: 12px;
+    border-radius: var(--r);
     overflow: hidden;
     position: relative;
-    background: var(--red);
   }
-
-  .slides { display: flex; transition: transform 0.5s ease; }
-  .slide {
+  .slider-wrap { direction: ltr; overflow: hidden; }
+  .slider {
+    display: flex;
+    transition: transform .45s ease;
+  }
+  .sl {
     min-width: 100%;
-    padding: 36px 28px 44px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center; color: #fff;
-    min-height: 200px;
+    padding: 32px 20px 40px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; color: #fff; direction: rtl;
   }
-  .slide:nth-child(1) { background: linear-gradient(135deg, #e30613, #c40510); }
-  .slide:nth-child(2) { background: linear-gradient(135deg, #b8050f, #e30613); }
-  .slide:nth-child(3) { background: linear-gradient(135deg, #8a0009, #d42030); }
-
-  .slide-icon {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: rgba(255,255,255,0.18); display: grid; place-items: center;
-    font-size: 26px; margin-bottom: 16px;
+  .sl:nth-child(1) { background: linear-gradient(145deg, #e30613 0%, #a00410 100%); }
+  .sl:nth-child(2) { background: linear-gradient(145deg, #c40510 0%, #e30613 100%); }
+  .sl:nth-child(3) { background: linear-gradient(145deg, #900008 0%, #d42030 100%); }
+  .sl-ico {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); display: grid; place-items: center;
+    font-size: 24px; margin-bottom: 14px;
   }
-  .slide h2 {
-    font-family: var(--font-body);
-    font-size: 22px; font-weight: 700;
-    margin-bottom: 8px; text-wrap: balance;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.15);
-  }
-  .slide p {
-    font-size: 14px; line-height: 1.65; opacity: 0.9;
-    max-width: 300px;
-  }
-
+  .sl h2 { font-size: 19px; font-weight: 800; margin-bottom: 6px; }
+  .sl p { font-size: 13px; opacity: .85; max-width: 280px; line-height: 1.6; }
   .dots {
-    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 7px;
+    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 6px; direction: ltr;
   }
-  .dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: rgba(255,255,255,0.35); border: none;
-    cursor: pointer; transition: 0.3s; padding: 0;
+  .dt {
+    width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0;
+    background: rgba(255,255,255,0.35); cursor: pointer; transition: .25s;
   }
-  .dot.on { background: #fff; transform: scale(1.3); }
+  .dt.on { background: #fff; width: 20px; border-radius: 4px; }
 
-  /* Action Buttons */
-  .actions {
-    display: flex; flex-direction: column; gap: 12px;
-    margin: 24px 0;
+  /* ── Action Buttons ── */
+  .acts { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+  .act {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--red); color: #fff; border: none; border-radius: var(--r);
+    padding: 14px 16px; cursor: pointer; text-align: start;
+    font-family: var(--font); font-size: 15px; font-weight: 700;
+    transition: background .15s;
   }
-
-  .action-btn {
-    display: flex; align-items: center; gap: 16px;
-    background: var(--red); color: #fff; border: none;
-    border-radius: var(--radius); padding: 18px 20px;
-    cursor: pointer; text-align: start;
-    font-family: var(--font-body); font-size: 16px; font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 4px 18px rgba(227, 6, 19, 0.25);
+  .act:active { background: var(--red-hover); }
+  .act-ic {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(255,255,255,0.18); display: grid; place-items: center; flex-shrink: 0;
   }
-  .action-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
-  .action-btn:active { transform: translateY(0); }
+  .act-ic svg { width: 20px; height: 20px; fill: #fff; }
+  .act-tx { min-width: 0; }
+  .act-tx small { display: block; font-size: 11px; font-weight: 400; opacity: .75; margin-top: 1px; }
 
-  .action-btn .icon-wrap {
-    width: 44px; height: 44px; border-radius: 12px;
-    background: rgba(255,255,255,0.18); display: grid; place-items: center;
-    flex-shrink: 0;
-  }
-  .action-btn .icon-wrap svg { width: 22px; height: 22px; fill: #fff; }
-
-  .action-btn .label { display: flex; flex-direction: column; gap: 2px; min-width: 0; word-break: break-word; }
-  .action-btn .label small {
-    font-size: 12px; font-weight: 400; opacity: 0.8;
-  }
-
-  /* Services Grid */
-  .section-title {
-    font-size: 18px; font-weight: 700; color: var(--fg);
-    margin: 8px 0 14px;
-  }
-
+  /* ── Services ── */
+  .sec-t { font-size: 16px; font-weight: 800; margin: 4px 0 10px; }
   .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 32px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-bottom: 20px;
   }
+  .g-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 14px 6px 10px; text-align: center;
+    cursor: pointer; transition: border-color .15s;
+    font-family: var(--font); color: var(--fg);
+  }
+  .g-card:active { border-color: var(--red); }
+  .g-ic {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: var(--red-bg); display: grid; place-items: center;
+    margin: 0 auto 8px;
+  }
+  .g-ic svg { width: 18px; height: 18px; fill: var(--red); }
+  .g-card span { font-size: 11px; font-weight: 700; line-height: 1.4; display: block; }
 
-  .svc {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 18px 8px 14px;
-    text-align: center; cursor: pointer;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: none; font-family: var(--font-body); color: var(--fg);
+  /* ── FAQ ── */
+  .faq { margin-bottom: 20px; }
+  .fq {
+    border: 1px solid var(--border); border-radius: var(--r);
+    margin-bottom: 8px; overflow: hidden; background: var(--card-bg);
   }
-  .svc:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-
-  .svc-icon {
-    width: 44px; height: 44px; border-radius: 12px;
-    background: var(--red-soft); display: grid; place-items: center;
-    margin: 0 auto 10px;
-  }
-  .svc-icon svg { width: 22px; height: 22px; fill: var(--red); }
-
-  .svc span {
-    display: block; font-size: 12px; font-weight: 600;
-    line-height: 1.4; color: var(--fg);
-  }
-
-  /* FAQ */
-  .faq { margin-bottom: 32px; }
-  .faq-item {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--card-shadow);
-    margin-bottom: 10px;
-    overflow: hidden;
-  }
-  .faq-q {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; width: 100%; padding: 16px 18px;
+  .fq-btn {
+    display: flex; align-items: center; width: 100%;
+    padding: 13px 14px; gap: 10px;
     background: none; border: none; cursor: pointer;
-    font-family: var(--font-body); font-size: 14px; font-weight: 600;
-    color: var(--fg); text-align: start; word-break: break-word;
+    font-family: var(--font); font-size: 13px; font-weight: 700;
+    color: var(--fg); text-align: right;
   }
-  .faq-q:hover { background: var(--red-soft); }
-  .faq-plus {
-    width: 28px; height: 28px; border-radius: 50%;
+  .fq-btn:active { background: var(--red-bg); }
+  .fq-plus {
+    width: 26px; height: 26px; border-radius: 50%;
     background: var(--red); color: #fff;
     display: grid; place-items: center; flex-shrink: 0;
-    font-size: 20px; line-height: 1;
-    transition: transform 0.3s;
+    font-size: 18px; line-height: 1; transition: transform .25s;
   }
-  .faq-item.open .faq-plus { transform: rotate(45deg); }
-  .faq-a {
+  .fq-txt { flex: 1; min-width: 0; }
+  .fq.on .fq-plus { transform: rotate(45deg); }
+  .fq-ans {
     max-height: 0; overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
-    padding: 0 18px;
+    transition: max-height .3s ease;
   }
-  .faq-item.open .faq-a {
-    max-height: 300px;
-    padding: 0 18px 16px;
-  }
-  .faq-a p {
-    font-size: 13px; line-height: 1.7;
-    color: var(--fg-muted);
+  .fq.on .fq-ans { max-height: 250px; }
+  .fq-ans p {
+    padding: 0 14px 14px; font-size: 12px; line-height: 1.8;
+    color: var(--fg-dim);
   }
 
-  /* Legal */
+  /* ── Legal ── */
+  .legal-t { font-size: 14px; font-weight: 800; text-align: center; margin: 4px 0 10px; }
   .legal {
-    display: flex; flex-wrap: wrap; gap: 10px 16px;
-    justify-content: center;
-    margin-bottom: 24px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center;
+    margin-bottom: 16px;
   }
-  .legal a {
-    font-size: 13px; color: var(--fg-muted);
-    text-decoration: none; font-weight: 500;
-    transition: color 0.2s;
-  }
-  .legal a:hover { color: var(--red); }
+  .legal a { font-size: 12px; color: var(--fg-dim); text-decoration: none; font-weight: 500; }
+  .legal a:active { color: var(--red); }
 
-  /* Footer */
-  .footer {
-    background: #111;
-    color: #fff;
-    text-align: center;
-    padding: 24px 20px;
-    font-size: 14px;
-    line-height: 1.8;
+  /* ── Footer ── */
+  .ft {
+    background: #111; color: #fff; text-align: center;
+    padding: 20px 16px; font-size: 13px; line-height: 1.8;
     margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
     margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
-  .footer p { margin: 0; }
-  .footer strong { color: #fff; }
-  .footer hr {
-    border: 0;
-    border-top: 1px solid #444;
-    margin: 12px 0;
-  }
-  .footer .disclaimer {
-    font-size: 12px;
-    color: #ccc;
-    line-height: 1.9;
-  }
-  .footer .copyright {
-    font-size: 11px;
-    color: #888;
-    margin-top: 10px;
-  }
-
-  /* Mobile-first responsive */
-  @media (max-width: 480px) {
-    .header { padding: 12px 0; }
-    .logo { font-size: 22px; }
-    .lang-btn { padding: 5px 8px; font-size: 12px; }
-    .lang-btn svg { width: 16px; height: 16px; }
-
-    .banner { margin-top: 14px; border-radius: 12px; }
-    .slide { padding: 28px 18px 38px; min-height: 170px; }
-    .slide-icon { width: 46px; height: 46px; font-size: 22px; margin-bottom: 12px; }
-    .slide h2 { font-size: 18px; margin-bottom: 6px; }
-    .slide p { font-size: 13px; line-height: 1.5; max-width: 260px; }
-
-    .actions { gap: 10px; margin: 18px 0; }
-    .action-btn {
-      padding: 14px 14px; gap: 12px;
-      font-size: 14px; border-radius: 12px;
-    }
-    .action-btn .icon-wrap { width: 38px; height: 38px; border-radius: 10px; }
-    .action-btn .icon-wrap svg { width: 18px; height: 18px; }
-    .action-btn .label small { font-size: 11px; }
-
-    .section-title { font-size: 16px; margin: 6px 0 10px; }
-
-    .grid { gap: 8px; margin-bottom: 24px; }
-    .svc { padding: 14px 6px 10px; border-radius: 12px; }
-    .svc-icon { width: 38px; height: 38px; border-radius: 10px; margin-bottom: 8px; }
-    .svc-icon svg { width: 18px; height: 18px; }
-    .svc span { font-size: 11px; }
-
-    .faq-item { border-radius: 12px; margin-bottom: 8px; }
-    .faq-q { padding: 13px 14px; font-size: 13px; gap: 10px; }
-    .faq-plus { width: 24px; height: 24px; font-size: 16px; }
-    .faq-a { padding: 0 14px; }
-    .faq-item.open .faq-a { padding: 0 14px 14px; }
-    .faq-a p { font-size: 12px; line-height: 1.6; }
-
-    .legal { gap: 8px 12px; margin-bottom: 20px; }
-    .legal a { font-size: 12px; }
-
-    .footer { padding: 18px 16px; font-size: 13px; line-height: 1.7; }
-    .footer .disclaimer { font-size: 11px; line-height: 1.7; }
-    .footer .copyright { font-size: 10px; }
-  }
-
-  @media (max-width: 340px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-    .slide h2 { font-size: 16px; }
-    .slide p { font-size: 12px; }
-    .action-btn { font-size: 13px; padding: 12px 12px; }
-    .faq-q { font-size: 12px; }
-  }
-
-  /* Desktop max-width */
-  @media (min-width: 600px) {
-    .header, .actions, .section-title, .grid, .faq, .legal { max-width: 520px; margin-left: auto; margin-right: auto; }
-    .banner { max-width: 520px; margin-left: auto; margin-right: auto; }
-    .actions { margin-top: 24px; margin-bottom: 24px; }
-  }
+  .ft p { margin: 0; }
+  .ft strong { color: #fff; }
+  .ft hr { border: 0; border-top: 1px solid #333; margin: 10px 0; }
+  .ft .disc { font-size: 11px; color: #aaa; line-height: 1.8; }
+  .ft .copy { font-size: 10px; color: #666; margin-top: 8px; }
 
   @media (prefers-reduced-motion: reduce) {
-    .slides, .sidebar, .overlay, .action-btn, .svc, .dot, .faq-a, .faq-plus { transition: none; }
+    .slider, .sb, .ov, .fq-ans, .fq-plus, .dt { transition: none; }
   }
 </style>
 
-<!-- Header -->
-<header class="header">
-  <button class="hamburger" id="menuBtn" aria-label="القائمة">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="logo">برق</div>
-  <button class="lang-btn" id="langBtn">
-    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-    EN
-  </button>
-</header>
+<div class="wrap">
+  <!-- Header -->
+  <header class="header">
+    <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="logo">برق</div>
+    <button class="lang" id="langBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      EN
+    </button>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <div class="slider-wrap">
+      <div class="slider" id="slider">
+        <div class="sl">
+          <div class="sl-ico">&#9889;</div>
+          <h2>اشحن رصيدك بسرعة البرق</h2>
+          <p>اشحن رصيد اوريدو بسهولة وأمان من أي مكان وفي أي وقت</p>
+        </div>
+        <div class="sl">
+          <div class="sl-ico">&#128176;</div>
+          <h2>ادفع فواتيرك بضغطة زر</h2>
+          <p>سدد جميع فواتير اوريدو بسرعة ودون عناء</p>
+        </div>
+        <div class="sl">
+          <div class="sl-ico">&#127873;</div>
+          <h2>عروض حصرية لك</h2>
+          <p>اكتشف أحدث العروض والباقات المميزة من اوريدو</p>
+        </div>
+      </div>
+    </div>
+    <div class="dots">
+      <button class="dt on" data-i="0"></button>
+      <button class="dt" data-i="1"></button>
+      <button class="dt" data-i="2"></button>
+    </div>
+  </section>
+
+  <!-- Actions -->
+  <div class="acts">
+    <button class="act">
+      <div class="act-ic"><svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zm-4.2-5.78v1.75l3.2-2.99L12.8 9v1.7c-3.11.43-4.35 2.56-4.8 4.7 1.11-1.5 2.58-2.18 4.8-2.18z"/></svg></div>
+      <div class="act-tx">شحن رصيد اوريدو<small>اشحن الآن بسرعة وأمان</small></div>
+    </button>
+    <button class="act">
+      <div class="act-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+      <div class="act-tx">دفع فواتير اوريدو<small>سدد فواتيرك بسهولة</small></div>
+    </button>
+    <button class="act">
+      <div class="act-ic"><svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+      <div class="act-tx">إعادة تعبئة رصيد اوريدو<small>عبّئ رصيدك في ثوانٍ</small></div>
+    </button>
+  </div>
+
+  <!-- Services -->
+  <h3 class="sec-t">خدمات سريعة</h3>
+  <div class="grid">
+    <button class="g-card"><div class="g-ic"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div><span>تحويل رصيد</span></button>
+    <button class="g-card"><div class="g-ic"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div><span>بطاقات الشحن</span></button>
+    <button class="g-card"><div class="g-ic"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div><span>حماية الرصيد</span></button>
+    <button class="g-card"><div class="g-ic"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></div><span>الإعدادات</span></button>
+    <button class="g-card"><div class="g-ic"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg></div><span>الدعم الفني</span></button>
+    <button class="g-card"><div class="g-ic"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/></svg></div><span>العروض</span></button>
+  </div>
+
+  <!-- FAQ -->
+  <h3 class="sec-t">الأسئلة الشائعة</h3>
+  <div class="faq" id="faq">
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">كيف أشحن رصيد اوريدو عبر برق؟</div></button><div class="fq-ans"><p>يمكنك شحن رصيد اوريدو بسهولة من خلال اختيار "شحن رصيد اوريدو" من الصفحة الرئيسية، ثم إدخال رقم الهاتف والمبلغ المطلوب واختيار طريقة الدفع المناسبة لك.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">ما هي طرق الدفع المتاحة؟</div></button><div class="fq-ans"><p>نوفر عدة طرق للدفع تشمل البطاقات البنكية (فيزا وماستركارد)، والتحويل البنكي، وبطاقات الشحن المسبقة الدفع، بالإضافة إلى المحافظ الإلكترونية.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل الشحن عبر برق آمن؟</div></button><div class="fq-ans"><p>نعم، جميع المعاملات مشفرة بتقنية SSL ومحمية بأعلى معايير الأمان. بياناتك المالية لا تُخزَّن على خوادمنا ويتم معالجتها عبر بوابات دفع معتمدة دولياً.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">كم يستغرق وصول الشحن للرقم؟</div></button><div class="fq-ans"><p>يتم شحن الرصيد فوراً بمجرد إتمام عملية الدفع بنجاح. في حالات نادرة قد يستغرق الأمر حتى 5 دقائق.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل يمكنني شحن رصيد لرقم شخص آخر؟</div></button><div class="fq-ans"><p>بالتأكيد، يمكنك شحن الرصيد لأي رقم اوريدو سواء كان رقمك الشخصي أو رقم أي شخص آخر. فقط أدخل الرقم المراد شحنه.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">كيف أدفع فاتورة اوريدو الشهرية؟</div></button><div class="fq-ans"><p>اختر "دفع فواتير اوريدو" من الصفحة الرئيسية، ثم أدخل رقم الحساب أو رقم الهاتف وسيتم عرض الفاتورة المستحقة. اختر طريقة الدفع وأكمل العملية.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">ما الفرق بين شحن الرصيد وإعادة التعبئة؟</div></button><div class="fq-ans"><p>شحن الرصيد يضيف رصيداً جديداً لخطك مسبق الدفع، بينما إعادة التعبئة تجدد باقتك الحالية (بيانات، مكالمات، رسائل) عند انتهائها أو قبل انتهائها.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل هناك حد أدنى أو أقصى لمبلغ الشحن؟</div></button><div class="fq-ans"><p>الحد الأدنى للشحن هو 1 ريال والحد الأقصى يختلف حسب طريقة الدفع المستخدمة. البطاقات البنكية تسمح بشحن حتى 500 ريال في العملية الواحدة.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">ماذا أفعل إذا لم يصل الشحن؟</div></button><div class="fq-ans"><p>إذا لم يصل الشحن خلال 10 دقائق، تأكد أولاً من صحة الرقم المُدخل. إذا كان صحيحاً، تواصل مع خدمة العملاء عبر قسم "الدعم الفني" مع ذكر رقم العملية.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل يمكنني استرجاع مبلغ الشحن؟</div></button><div class="fq-ans"><p>يمكن استرجاع المبلغ فقط في حالة فشل عملية الشحن. إذا تم الشحن بنجاح للرقم الصحيح فلا يمكن الاسترجاع. في حالة الشحن لرقم خاطئ، تواصل مع الدعم الفني فوراً.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل أحتاج لإنشاء حساب لاستخدام برق؟</div></button><div class="fq-ans"><p>يمكنك الشحن كزائر بدون حساب. لكن إنشاء حساب يتيح لك مزايا إضافية مثل حفظ الأرقام المفضلة، سجل المعاملات، والحصول على عروض حصرية.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل تتوفر عروض وخصومات على الشحن؟</div></button><div class="fq-ans"><p>نعم، نقدم عروضاً وخصومات بشكل دوري على عمليات الشحن. تابع قسم "العروض" في الصفحة الرئيسية أو فعّل الإشعارات لتصلك أحدث العروض.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل يدعم برق جميع خطوط اوريدو؟</div></button><div class="fq-ans"><p>نعم، برق يدعم جميع أنواع خطوط اوريدو بما فيها الخطوط مسبقة الدفع والآجلة الدفع وخطوط الأعمال.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">كيف أتواصل مع خدمة العملاء؟</div></button><div class="fq-ans"><p>يمكنك التواصل معنا عبر قسم "الدعم الفني" في التطبيق، أو عبر البريد الإلكتروني، أو من خلال حساباتنا على مواقع التواصل الاجتماعي. فريق الدعم متاح على مدار الساعة.</p></div></div>
+    <div class="fq"><button class="fq-btn"><div class="fq-plus">+</div><div class="fq-txt">هل يمكنني جدولة شحن تلقائي؟</div></button><div class="fq-ans"><p>نعم، عند إنشاء حساب يمكنك تفعيل الشحن التلقائي الذي يقوم بشحن رصيدك تلقائياً عند وصوله لحد معين تحدده أنت، مع اختيار المبلغ وطريقة الدفع المفضلة.</p></div></div>
+  </div>
+
+  <!-- Legal -->
+  <h3 class="legal-t">الصفحات القانونية</h3>
+  <div class="legal">
+    <a href="#">سياسة الخصوصية</a>
+    <a href="#">الشروط والأحكام</a>
+    <a href="#">سياسة الاسترجاع</a>
+    <a href="#">سياسة ملفات تعريف الارتباط</a>
+    <a href="#">اتفاقية الاستخدام</a>
+    <a href="#">الإفصاح القانوني</a>
+  </div>
+</div>
 
 <!-- Sidebar -->
-<div class="overlay" id="overlay"></div>
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-head">
+<div class="ov" id="ov"></div>
+<aside class="sb" id="sb">
+  <div class="sb-top">
     <div class="logo">برق</div>
-    <button class="sidebar-close" id="closeBtn">&times;</button>
+    <button class="sb-x" id="sbX">&times;</button>
   </div>
   <nav>
     <a href="#">الرئيسية</a>
@@ -455,226 +373,47 @@
   </nav>
 </aside>
 
-<!-- Banner -->
-<section class="banner">
-  <div class="slides" id="slides">
-    <div class="slide">
-      <div class="slide-icon">&#9889;</div>
-      <h2>اشحن رصيدك بسرعة البرق</h2>
-      <p>اشحن رصيد اوريدو بسهولة وأمان من أي مكان وفي أي وقت</p>
-    </div>
-    <div class="slide">
-      <div class="slide-icon">&#128176;</div>
-      <h2>ادفع فواتيرك بضغطة زر</h2>
-      <p>سدد جميع فواتير اوريدو بسرعة ودون عناء</p>
-    </div>
-    <div class="slide">
-      <div class="slide-icon">&#127873;</div>
-      <h2>عروض حصرية لك</h2>
-      <p>اكتشف أحدث العروض والباقات المميزة من اوريدو</p>
-    </div>
-  </div>
-  <div class="dots">
-    <button class="dot on" data-i="0" aria-label="1"></button>
-    <button class="dot" data-i="1" aria-label="2"></button>
-    <button class="dot" data-i="2" aria-label="3"></button>
-  </div>
-</section>
-
-<!-- Action Buttons -->
-<div class="actions">
-  <button class="action-btn">
-    <div class="icon-wrap">
-      <svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zm-4.2-5.78v1.75l3.2-2.99L12.8 9v1.7c-3.11.43-4.35 2.56-4.8 4.7 1.11-1.5 2.58-2.18 4.8-2.18z"/></svg>
-    </div>
-    <div class="label">
-      شحن رصيد اوريدو
-      <small>اشحن الآن بسرعة وأمان</small>
-    </div>
-  </button>
-
-  <button class="action-btn">
-    <div class="icon-wrap">
-      <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-    </div>
-    <div class="label">
-      دفع فواتير اوريدو
-      <small>سدد فواتيرك بسهولة</small>
-    </div>
-  </button>
-
-  <button class="action-btn">
-    <div class="icon-wrap">
-      <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-    </div>
-    <div class="label">
-      إعادة تعبئة رصيد اوريدو
-      <small>عبّئ رصيدك في ثوانٍ</small>
-    </div>
-  </button>
-</div>
-
-<!-- Quick Services -->
-<h3 class="section-title">خدمات سريعة</h3>
-<div class="grid">
-  <button class="svc">
-    <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
-    <span>تحويل رصيد</span>
-  </button>
-  <button class="svc">
-    <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div>
-    <span>بطاقات الشحن</span>
-  </button>
-  <button class="svc">
-    <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
-    <span>حماية الرصيد</span>
-  </button>
-  <button class="svc">
-    <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></div>
-    <span>الإعدادات</span>
-  </button>
-  <button class="svc">
-    <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg></div>
-    <span>الدعم الفني</span>
-  </button>
-  <button class="svc">
-    <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/></svg></div>
-    <span>العروض</span>
-  </button>
-</div>
-
-<!-- FAQ -->
-<h3 class="section-title">الأسئلة الشائعة</h3>
-<div class="faq" id="faq">
-  <div class="faq-item">
-    <button class="faq-q"><span>كيف أشحن رصيد اوريدو عبر برق؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>يمكنك شحن رصيد اوريدو بسهولة من خلال اختيار "شحن رصيد اوريدو" من الصفحة الرئيسية، ثم إدخال رقم الهاتف والمبلغ المطلوب واختيار طريقة الدفع المناسبة لك.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>ما هي طرق الدفع المتاحة؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>نوفر عدة طرق للدفع تشمل البطاقات البنكية (فيزا وماستركارد)، والتحويل البنكي، وبطاقات الشحن المسبقة الدفع، بالإضافة إلى المحافظ الإلكترونية.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل الشحن عبر برق آمن؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>نعم، جميع المعاملات مشفرة بتقنية SSL ومحمية بأعلى معايير الأمان. بياناتك المالية لا تُخزَّن على خوادمنا ويتم معالجتها عبر بوابات دفع معتمدة دولياً.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>كم يستغرق وصول الشحن للرقم؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>يتم شحن الرصيد فوراً بمجرد إتمام عملية الدفع بنجاح. في حالات نادرة قد يستغرق الأمر حتى 5 دقائق.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل يمكنني شحن رصيد لرقم شخص آخر؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>بالتأكيد، يمكنك شحن الرصيد لأي رقم اوريدو سواء كان رقمك الشخصي أو رقم أي شخص آخر. فقط أدخل الرقم المراد شحنه.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>كيف أدفع فاتورة اوريدو الشهرية؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>اختر "دفع فواتير اوريدو" من الصفحة الرئيسية، ثم أدخل رقم الحساب أو رقم الهاتف وسيتم عرض الفاتورة المستحقة. اختر طريقة الدفع وأكمل العملية.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>ما الفرق بين شحن الرصيد وإعادة التعبئة؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>شحن الرصيد يضيف رصيداً جديداً لخطك مسبق الدفع، بينما إعادة التعبئة تجدد باقتك الحالية (بيانات، مكالمات، رسائل) عند انتهائها أو قبل انتهائها.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل هناك حد أدنى أو أقصى لمبلغ الشحن؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>الحد الأدنى للشحن هو 1 ريال والحد الأقصى يختلف حسب طريقة الدفع المستخدمة. البطاقات البنكية تسمح بشحن حتى 500 ريال في العملية الواحدة.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>ماذا أفعل إذا لم يصل الشحن؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>إذا لم يصل الشحن خلال 10 دقائق، تأكد أولاً من صحة الرقم المُدخل. إذا كان صحيحاً، تواصل مع خدمة العملاء عبر قسم "الدعم الفني" مع ذكر رقم العملية.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل يمكنني استرجاع مبلغ الشحن؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>يمكن استرجاع المبلغ فقط في حالة فشل عملية الشحن. إذا تم الشحن بنجاح للرقم الصحيح فلا يمكن الاسترجاع. في حالة الشحن لرقم خاطئ، تواصل مع الدعم الفني فوراً.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل أحتاج لإنشاء حساب لاستخدام برق؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>يمكنك الشحن كزائر بدون حساب. لكن إنشاء حساب يتيح لك مزايا إضافية مثل حفظ الأرقام المفضلة، سجل المعاملات، والحصول على عروض حصرية.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل تتوفر عروض وخصومات على الشحن؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>نعم، نقدم عروضاً وخصومات بشكل دوري على عمليات الشحن. تابع قسم "العروض" في الصفحة الرئيسية أو فعّل الإشعارات لتصلك أحدث العروض.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل يدعم برق جميع خطوط اوريدو؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>نعم، برق يدعم جميع أنواع خطوط اوريدو بما فيها الخطوط مسبقة الدفع والآجلة الدفع وخطوط الأعمال.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>كيف أتواصل مع خدمة العملاء؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>يمكنك التواصل معنا عبر قسم "الدعم الفني" في التطبيق، أو عبر البريد الإلكتروني، أو من خلال حساباتنا على مواقع التواصل الاجتماعي. فريق الدعم متاح على مدار الساعة.</p></div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q"><span>هل يمكنني جدولة شحن تلقائي؟</span><div class="faq-plus">+</div></button>
-    <div class="faq-a"><p>نعم، عند إنشاء حساب يمكنك تفعيل الشحن التلقائي الذي يقوم بشحن رصيدك تلقائياً عند وصوله لحد معين تحدده أنت، مع اختيار المبلغ وطريقة الدفع المفضلة.</p></div>
-  </div>
-</div>
-
-<!-- Legal Pages -->
-<h3 class="section-title" style="text-align:center">الصفحات القانونية</h3>
-<div class="legal">
-  <a href="#">سياسة الخصوصية</a>
-  <a href="#">الشروط والأحكام</a>
-  <a href="#">سياسة الاسترجاع</a>
-  <a href="#">سياسة ملفات تعريف الارتباط</a>
-  <a href="#">اتفاقية الاستخدام</a>
-  <a href="#">الإفصاح القانوني</a>
-</div>
-
 <!-- Footer -->
-<footer class="footer">
+<footer class="ft">
   <p><strong>برق الاتصال لتقنية المعلومات</strong> | رخصة موحدة رقم: 1167730</p>
   <p>العنوان: مكتب رقم 316، الخبيصي، دبي، الإمارات العربية المتحدة</p>
   <hr>
-  <p class="disclaimer">
-    إخلاء مسؤولية: هذا الموقع هو منصة دليل ومساعدة إلكترونية مستقلة يهدف إلى توجيه ومساعدة المستخدمين بمعلومات وتفاصيل حول طرق وخطوات شحن رصيد أوريدو الكويت. نحن لسنا الجهة الرسمية أو البوابة المباشرة لشركة أوريدو، وجميع العلامات التجارية والأسماء المذكورة هي ملك لأصحابها وتُستخدم بغرض التوجيه والإرشاد فقط.
-  </p>
-  <p class="copyright">&copy; 2026 جميع الحقوق محفوظة.</p>
+  <p class="disc">إخلاء مسؤولية: هذا الموقع هو منصة دليل ومساعدة إلكترونية مستقلة يهدف إلى توجيه ومساعدة المستخدمين بمعلومات وتفاصيل حول طرق وخطوات شحن رصيد أوريدو الكويت. نحن لسنا الجهة الرسمية أو البوابة المباشرة لشركة أوريدو، وجميع العلامات التجارية والأسماء المذكورة هي ملك لأصحابها وتُستخدم بغرض التوجيه والإرشاد فقط.</p>
+  <p class="copy">&copy; 2026 جميع الحقوق محفوظة.</p>
 </footer>
 
 <script>
-  var menuBtn = document.getElementById('menuBtn');
-  var closeBtn = document.getElementById('closeBtn');
-  var overlay = document.getElementById('overlay');
-  var sidebar = document.getElementById('sidebar');
+  // Sidebar
+  var sb = document.getElementById('sb'), ov = document.getElementById('ov');
+  document.getElementById('menuBtn').addEventListener('click', function(){ sb.classList.add('on'); ov.classList.add('on'); });
+  function closeSb(){ sb.classList.remove('on'); ov.classList.remove('on'); }
+  document.getElementById('sbX').addEventListener('click', closeSb);
+  ov.addEventListener('click', closeSb);
 
-  function openMenu() { sidebar.classList.add('open'); overlay.classList.add('open'); }
-  function closeMenu() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
-  menuBtn.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenu);
-  overlay.addEventListener('click', closeMenu);
-
-  // Banner slider
-  var cur = 0;
-  var slides = document.getElementById('slides');
-  var dots = document.querySelectorAll('.dot');
-
-  function go(i) {
+  // Slider — uses direction:ltr wrapper so translateX works correctly
+  var cur = 0, slider = document.getElementById('slider'), dots = document.querySelectorAll('.dt');
+  function go(i){
     cur = i;
-    slides.style.transform = 'translateX(' + (cur * 100) + '%)';
-    dots.forEach(function(d, idx) { d.classList.toggle('on', idx === cur); });
+    slider.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach(function(d,idx){ d.classList.toggle('on', idx===cur); });
   }
-  dots.forEach(function(d) {
-    d.addEventListener('click', function() { go(parseInt(this.getAttribute('data-i'))); });
-  });
-  setInterval(function() { go((cur + 1) % 3); }, 4500);
+  dots.forEach(function(d){ d.addEventListener('click', function(){ go(+this.dataset.i); }); });
+  setInterval(function(){ go((cur+1)%3); }, 4500);
 
-  // FAQ accordion
-  document.getElementById('faq').addEventListener('click', function(e) {
-    var btn = e.target.closest('.faq-q');
-    if (!btn) return;
-    var item = btn.parentElement;
-    var wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
-    if (!wasOpen) item.classList.add('open');
+  // FAQ
+  document.getElementById('faq').addEventListener('click', function(e){
+    var b = e.target.closest('.fq-btn'); if(!b) return;
+    var fq = b.parentElement, wasOn = fq.classList.contains('on');
+    document.querySelectorAll('.fq.on').forEach(function(el){ el.classList.remove('on'); });
+    if(!wasOn) fq.classList.add('on');
   });
 
-  // Language toggle
-  var isAr = true;
-  var langBtn = document.getElementById('langBtn');
-  langBtn.addEventListener('click', function() {
-    isAr = !isAr;
-    document.documentElement.dir = isAr ? 'rtl' : 'ltr';
-    document.documentElement.lang = isAr ? 'ar' : 'en';
-    var svgMarkup = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>';
-    langBtn.innerHTML = svgMarkup + (isAr ? ' EN' : ' عربي');
+  // Lang
+  var isAr=true, lb=document.getElementById('langBtn');
+  lb.addEventListener('click', function(){
+    isAr=!isAr;
+    document.documentElement.dir=isAr?'rtl':'ltr';
+    document.documentElement.lang=isAr?'ar':'en';
+    lb.innerHTML='<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'+(isAr?' EN':' عربي');
   });
 </script>
