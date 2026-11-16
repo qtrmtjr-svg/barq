@@ -141,12 +141,40 @@ body{
 .leg a{font-size:11px;color:var(--fg3);text-decoration:none;font-weight:500}
 
 /* Footer */
-.ft{background:#111;color:#ccc;text-align:center;padding:20px 16px;font-size:12px;line-height:1.9}
-.ft p{margin:0}
-.ft strong{color:#fff}
-.ft hr{border:0;border-top:1px solid #2a2a2a;margin:10px 0}
-.ft .d{font-size:10px;color:#888;line-height:1.8}
-.ft .cp{font-size:10px;color:#555;margin-top:8px}
+.ft{background:#0a0a0a;color:#aaa;font-size:12px;line-height:1.7}
+.ft-top{background:linear-gradient(160deg,#e30613,#9e040e);padding:28px 16px;text-align:center}
+.ft-top img{height:36px;margin-bottom:10px;filter:brightness(0) invert(1)}
+.ft-top p{color:rgba(255,255,255,.8);font-size:11px;max-width:300px;margin:0 auto;line-height:1.6}
+.ft-links{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #1a1a1a}
+.ft-col{padding:20px 16px}
+.ft-col:first-child{border-left:1px solid #1a1a1a}
+.ft-col h4{color:#fff;font-size:12px;font-weight:700;margin-bottom:12px}
+.ft-col a{display:block;color:#777;text-decoration:none;font-size:11px;padding:4px 0;transition:color .15s}
+.ft-col a:hover{color:var(--red)}
+.ft-social{display:flex;justify-content:center;gap:12px;padding:20px 16px;border-bottom:1px solid #1a1a1a}
+.ft-social a{
+  width:36px;height:36px;border-radius:50%;
+  background:#1a1a1a;display:grid;place-items:center;
+  transition:background .15s;
+}
+.ft-social a:hover{background:var(--red)}
+.ft-social svg{width:16px;height:16px;fill:#888}
+.ft-social a:hover svg{fill:#fff}
+.ft-info{padding:16px;text-align:center}
+.ft-info .ft-co{color:#ddd;font-size:12px;font-weight:700;margin-bottom:4px}
+.ft-info .ft-lic{color:#666;font-size:10px;margin-bottom:2px}
+.ft-info .ft-addr{color:#555;font-size:10px;margin-bottom:12px}
+.ft-disc{
+  margin:0 16px;padding:12px;border-radius:8px;
+  background:#111;border:1px solid #1a1a1a;
+  font-size:10px;color:#666;line-height:1.8;text-align:center;
+}
+.ft-bottom{
+  display:flex;justify-content:center;align-items:center;gap:16px;
+  padding:14px 16px;margin-top:12px;border-top:1px solid #1a1a1a;
+}
+.ft-bottom span{color:#444;font-size:10px}
+.ft-bottom a{color:#555;font-size:10px;text-decoration:none}
 
 @media(prefers-reduced-motion:reduce){
   .sl-track,.sb,.ov,.fq-a,.fq-p,.dot,.gc{transition:none}
@@ -213,15 +241,6 @@ body{
     <div class="fq"><button class="fq-b"><div class="fq-p">+</div><div class="fq-t">هل يمكنني جدولة شحن تلقائي؟</div></button><div class="fq-a"><p>نعم، عند إنشاء حساب يمكنك تفعيل الشحن التلقائي الذي يقوم بشحن رصيدك تلقائياً عند وصوله لحد معين تحدده أنت، مع اختيار المبلغ وطريقة الدفع المفضلة.</p></div></div>
   </div>
 
-  <h3 class="lt">الصفحات القانونية</h3>
-  <div class="leg">
-    <a href="#">سياسة الخصوصية</a>
-    <a href="#">الشروط والأحكام</a>
-    <a href="#">سياسة الاسترجاع</a>
-    <a href="#">سياسة ملفات تعريف الارتباط</a>
-    <a href="#">اتفاقية الاستخدام</a>
-    <a href="#">الإفصاح القانوني</a>
-  </div>
 </div>
 
 <div class="ov" id="ov"></div>
@@ -234,11 +253,42 @@ body{
 </aside>
 
 <footer class="ft">
-  <p><strong>برق الاتصال لتقنية المعلومات</strong> | رخصة موحدة رقم: 1167730</p>
-  <p>العنوان: مكتب رقم 316، الخبيصي، دبي، الإمارات العربية المتحدة</p>
-  <hr>
-  <p class="d">إخلاء مسؤولية: هذا الموقع هو منصة دليل ومساعدة إلكترونية مستقلة يهدف إلى توجيه ومساعدة المستخدمين بمعلومات وتفاصيل حول طرق وخطوات شحن رصيد أوريدو الكويت. نحن لسنا الجهة الرسمية أو البوابة المباشرة لشركة أوريدو، وجميع العلامات التجارية والأسماء المذكورة هي ملك لأصحابها وتُستخدم بغرض التوجيه والإرشاد فقط.</p>
-  <p class="cp">&copy; 2026 جميع الحقوق محفوظة.</p>
+  <div class="ft-top">
+    <img src="logo.jpg" alt="Barq Al-Contact">
+    <p>منصتك الموثوقة لشحن رصيد اوريدو ودفع الفواتير بسرعة وأمان</p>
+  </div>
+  <div class="ft-links">
+    <div class="ft-col">
+      <h4>خدماتنا</h4>
+      <a href="#">شحن الرصيد</a>
+      <a href="#">دفع الفواتير</a>
+      <a href="#">إعادة التعبئة</a>
+      <a href="#">العروض والباقات</a>
+    </div>
+    <div class="ft-col">
+      <h4>روابط مهمة</h4>
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">الشروط والأحكام</a>
+      <a href="#">سياسة الاسترجاع</a>
+      <a href="#">اتصل بنا</a>
+    </div>
+  </div>
+  <div class="ft-social">
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.4a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.3a6.34 6.34 0 0010.86 4.46 6.21 6.21 0 001.86-4.42V8.73a8.19 8.19 0 004.72 1.49V6.79a4.85 4.85 0 01-1-.1z"/></svg></a>
+  </div>
+  <div class="ft-info">
+    <div class="ft-co">برق الاتصال لتقنية المعلومات</div>
+    <div class="ft-lic">رخصة موحدة رقم: 1167730</div>
+    <div class="ft-addr">مكتب رقم 316، الخبيصي، دبي، الإمارات العربية المتحدة</div>
+  </div>
+  <div class="ft-disc">إخلاء مسؤولية: هذا الموقع هو منصة دليل ومساعدة إلكترونية مستقلة يهدف إلى توجيه ومساعدة المستخدمين بمعلومات وتفاصيل حول طرق وخطوات شحن رصيد أوريدو الكويت. نحن لسنا الجهة الرسمية أو البوابة المباشرة لشركة أوريدو، وجميع العلامات التجارية والأسماء المذكورة هي ملك لأصحابها وتُستخدم بغرض التوجيه والإرشاد فقط.</div>
+  <div class="ft-bottom">
+    <span>&copy; 2026 جميع الحقوق محفوظة</span>
+    <a href="en.html">English</a>
+  </div>
 </footer>
 
 <script>
