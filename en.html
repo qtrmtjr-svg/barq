@@ -55,22 +55,18 @@ body{
 
 .acts{display:flex;flex-direction:column;gap:10px;margin:16px 0}
 .act{
-  display:flex;align-items:center;gap:14px;
-  background:var(--card);color:var(--fg);border:none;border-radius:var(--r);
-  padding:0;cursor:pointer;text-align:start;
-  font-family:inherit;box-shadow:var(--shadow);
-  transition:transform .15s;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--red);color:#fff;border:none;border-radius:var(--r);
+  padding:14px 16px;cursor:pointer;text-align:center;
+  font-family:inherit;font-size:14px;font-weight:700;
+  box-shadow:0 4px 16px rgba(227,6,19,.2);transition:background .15s;
 }
-.act:active{transform:scale(.97)}
+.act:active{background:var(--red2)}
 .act-i{
-  width:56px;min-height:56px;align-self:stretch;
-  background:var(--red);display:grid;place-items:center;flex-shrink:0;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.2);display:grid;place-items:center;flex-shrink:0;
 }
-.act-i svg{width:22px;height:22px;fill:#fff}
-.act-t{padding:12px 0 12px 14px;min-width:0;flex:1}
-.act-t span{display:block;font-size:13px;font-weight:700;color:var(--fg);margin-bottom:2px}
-.act-t small{display:block;font-size:10px;font-weight:400;color:var(--fg3)}
-.act-arr{margin-left:auto;margin-right:14px;color:var(--red);font-size:18px;flex-shrink:0}
+.act-i svg{width:18px;height:18px;fill:#fff}
 
 .st{font-size:15px;font-weight:800;margin:20px 0 12px;color:var(--fg)}
 
@@ -181,9 +177,9 @@ body{
   </section>
 
   <div class="acts">
-    <button class="act"><div class="act-i"><svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zm-4.2-5.78v1.75l3.2-2.99L12.8 9v1.7c-3.11.43-4.35 2.56-4.8 4.7 1.11-1.5 2.58-2.18 4.8-2.18z"/></svg></div><div class="act-t"><span>Recharge Ooredoo Balance</span><small>Top up your balance fast and secure</small></div><div class="act-arr">&rarr;</div></button>
-    <button class="act"><div class="act-i"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><div class="act-t"><span>Pay Ooredoo Bills</span><small>Settle all your bills easily</small></div><div class="act-arr">&rarr;</div></button>
-    <button class="act"><div class="act-i"><svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div><div class="act-t"><span>Ooredoo Balance Refill</span><small>Refill your balance in seconds</small></div><div class="act-arr">&rarr;</div></button>
+    <button class="act"><div class="act-i"><svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zm-4.2-5.78v1.75l3.2-2.99L12.8 9v1.7c-3.11.43-4.35 2.56-4.8 4.7 1.11-1.5 2.58-2.18 4.8-2.18z"/></svg></div>Recharge Ooredoo Balance</button>
+    <button class="act"><div class="act-i"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>Pay Ooredoo Bills</button>
+    <button class="act"><div class="act-i"><svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>Ooredoo Balance Refill</button>
   </div>
 
   <h3 class="st">Quick Services</h3>
