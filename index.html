@@ -37,6 +37,7 @@ body{
   font-family:inherit;font-size:12px;font-weight:700;
 }
 .hdr-lang svg{width:14px;height:14px;fill:var(--red)}
+.hdr-lang{text-decoration:none}
 
 /* Overlay + Sidebar */
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;opacity:0;visibility:hidden;transition:.2s}
@@ -158,10 +159,10 @@ body{
   <div class="c">
     <button class="hdr-menu" id="menuBtn"><span></span><span></span><span></span></button>
     <div class="hdr-logo"><img src="logo.jpg" alt="Barq Al-Contact"></div>
-    <button class="hdr-lang" id="langBtn">
+    <a class="hdr-lang" href="en.html">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
       EN
-    </button>
+    </a>
   </div>
 </header>
 
@@ -258,13 +259,6 @@ document.getElementById('faq').onclick=function(e){
   if(!w)f.classList.add('on');
 };
 
-var isAr=true,lb=document.getElementById('langBtn');
-lb.onclick=function(){
-  isAr=!isAr;
-  document.documentElement.dir=isAr?'rtl':'ltr';
-  document.documentElement.lang=isAr?'ar':'en';
-  lb.innerHTML='<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'+(isAr?' EN':' عربي');
-};
 </script>
 </body>
 </html>

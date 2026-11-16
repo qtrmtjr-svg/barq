@@ -10,5 +10,8 @@ services:
         value: no-cache, no-store, must-revalidate
     routes:
       - type: rewrite
+        source: /en
+        destination: /en.html
+      - type: rewrite
         source: /*
         destination: /index.html
